@@ -3,6 +3,7 @@ import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
 import SmoothInfiniteScroll from "@/components/SmoothinfiniteScroll";
 import { Fonts } from "@/constants/theme";
 import { LinearGradient } from 'expo-linear-gradient';
+import { Link } from "expo-router";
 import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
@@ -45,9 +46,11 @@ Linking.openURL('https://galaxies.dev');
   <GoogleAuthButton/>
 </Animated.View>
 <Animated.View entering={FadeInDown.delay(300)}>
+  <Link href={'/(app)/(public)/other-options'} asChild>
 <TouchableOpacity style={styles.otherButton}>
   <Text  style={styles.otherButtonText}>Other Options </Text>
 </TouchableOpacity>
+</Link>
 </Animated.View>
  
 </View>
