@@ -2,15 +2,17 @@ import zustandStorage from '@/utils/zustandStorage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-export interface UserState {
+
+
+export interface UseState{
   isGuest: boolean;
-  user: any;
+  user: any ;
   continueAsGuest: () => void;
   setUser: (user: any) => void;
   logout: () => void;
 }
 
-export const useUserStore = create<UserState>()(
+export const useUserStore = create<UseState>()(
   persist(
     (set) => ({
       isGuest: false,

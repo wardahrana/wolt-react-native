@@ -38,7 +38,7 @@ const Page = ( ) => {
 <Animated.View entering={FadeInDown.delay(400)}>
 <TouchableOpacity style={styles.otherButton}
  onPress={() => {
-  continueAsGuest();         // ✅ Ye call hota hai
+  continueAsGuest();        
 }}
 >
 
