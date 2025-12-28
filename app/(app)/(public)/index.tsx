@@ -1,6 +1,8 @@
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
 import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
+import SmoothInfiniteScroll from "@/components/SmoothinfiniteScroll";
 import { Fonts } from "@/constants/theme";
+import { LinearGradient } from 'expo-linear-gradient';
 import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
@@ -10,9 +12,26 @@ Linking.openURL('https://galaxies.dev');
   };
   return (
     <View style={styles.container}>
-<View style={styles.infiniteScrollContainer}>
-</View>
+      {/*Animated Portion */}
+      <View style={styles.infiniteScrollContainer}> 
+      <SmoothInfiniteScroll direction="down" />
+      <SmoothInfiniteScroll direction="up" />
+      <SmoothInfiniteScroll direction="down" />
+      <LinearGradient
+     colors={['transparent', '#d3d3d3']} // light grey
+     style={{
+    position: 'absolute',
+    height: 200,
+    left: 0,
+    bottom: -19,
+    right: 0,
+  }}
+/>
+      </View>
+    
+
 <View style={styles.contentContainer}>
+
 <Image source={require('@/assets/images/wolt-logo.png')} style={styles.brandLogo}/>
 <Animated.Text entering={FadeInDown} style={styles.tagline}>Almost everything delivered</Animated.Text>
 {/* Login buttons  */}
@@ -50,6 +69,10 @@ flex:1,
 },
 infiniteScrollContainer:{
 flex:0.8,
+flexDirection:'row',
+justifyContent: 'center',
+alignItems:'center',
+gap:4, 
 },
 contentContainer:{
 flex:1,
